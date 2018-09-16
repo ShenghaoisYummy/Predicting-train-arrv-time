@@ -187,4 +187,4 @@ def split_date(df, col_str):
     df['{}_minutes'.format(col_str)] = datetime.dt.strftime('%-M').apply(int)
 
 def is_peak_time(df):
-    df['is_peak_time'] = np.where(((6 <= df['actual_arrv_hours']) & (df['actual_arrv_hours'] <= 8)) | ((16 <= df['actual_arrv_hours'])& ( df['actual_arrv_hours']<= 19)), 1, 0)
+    df['is_peak_time'] = np.where(((6 <= df['actual_station_dprt_time_hours']) & (df['actual_station_dprt_time_hours'] <= 8)) | ((16 <= df['actual_station_dprt_time_hours'])& ( df['actual_station_dprt_time_hours']<= 19)), 1, 0)
