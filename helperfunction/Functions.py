@@ -42,9 +42,9 @@ def find_holiday(date):
 
 def  is_weekend(date):
     if(date.isoweekend() == 6 or date.isoweekend() == 7):
-        return 'Yes'
+        return 1
     else:
-        return 'NO'
+        return 0
         
 def is_on_time(planed_time, actual_time):
     if planed_time < actual_time:
