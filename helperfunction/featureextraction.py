@@ -180,11 +180,10 @@ def date_to_week(df):
 
 def split_date(df, col_str):
     datetime = pd.to_datetime(df[col_str], format="%d/%m/%Y %H:%M")
-    df['{}_year'.format(col_str)] = datetime.dt.strftime('%Y').apply(int)
     df['{}_month'.format(col_str)] = datetime.dt.strftime('%-m').apply(int)
     df['{}_days'.format(col_str)] = datetime.dt.strftime('%-d').apply(int)
     df['{}_hours'.format(col_str)] = datetime.dt.strftime('%-H').apply(int)
     df['{}_minutes'.format(col_str)] = datetime.dt.strftime('%-M').apply(int)
 
 def is_peak_time(df):
-    df['is_peak_time'] = np.where(((6 <= df['actual_station_dprt_time_hours']) & (df['actual_station_dprt_time_hours'] <= 8)) | ((16 <= df['actual_station_dprt_time_hours'])& ( df['actual_station_dprt_time_hours']<= 19)), 1, 0)
+    df['is_peak_time'] = np.where(((6 <= df['actual_station_arrv_time_hours']) & (df['actual_station_arrv_time_hours'] <= 8)) | ((16 <= df['actual_station_arrv_time_hours'])& ( df['actual_station_arrv_time_hours']<= 19)), 1, 0)
